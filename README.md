@@ -1,122 +1,71 @@
-# OTP-Authenticator-Ragnarok-Latam
+# OTP Authenticator Ragnarok Latam
 
-Um autenticador OTP (One-Time Password) desenvolvido em Python para gerar os códigos utilizados pelo servidor **Ragnarok Online LATAM**.
-O aplicativo possui uma interface moderna desenvolvida com **CustomTkinter**, permitindo gerenciar múltiplas contas e copiar rapidamente os códigos OTP.
-> Este projeto é independente e não possui qualquer vínculo com a Gravity, WarpPortal BR ou os responsáveis pelo Ragnarok Online LATAM.
-
----
+Autenticador OTP (One-Time Password) para Ragnarok Latam.
 
 ## Recursos
 
-- Interface moderna em modo escuro
-- Gerenciamento de múltiplas contas
-- Geração automática de códigos OTP
-- Atualização em tempo real (30 segundos)
-- Copiar OTP com um clique
-- Barra de progresso indicando o tempo restante
-- Armazenamento automático das contas em `emails.json`
-- Executável standalone utilizando PyInstaller
+- Interface moderna e responsiva com CustomTkinter
+- Geração de códigos TOTP para cada conta
+- Barra de progresso visual com contagem regressiva
+- Log de atividades em tempo real
+- Design escuro com tema profissional
 
----
+## Instalação
 
-## Requisitos
+### Pré-requisitos
 
-- Python 3.10+
-- Windows 10 ou superior
+- Python 3.9+
+- Pip
 
-Instale as dependências:
+### Passos
 
 ```bash
-pip install customtkinter
-```
+# Clone o repositório
+git clone https://github.com/Codeplay77/OTP-Authenticator-Ragnarok-Latam.git
 
----
+# Navegue até o diretório
+cd OTP-Authenticator-Ragnarok-Latam
 
-## Executando
+# Instale as dependências
+pip install -r requirements.txt
 
-```bash
+# Execute o aplicativo
 python otp_gui.py
 ```
 
----
+## Compilação (PyInstaller)
 
-## Gerando o executável
+### Requisitos
+
+- Python 3.11
+- PyInstaller
+
+### Windows x64
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter otp_gui.py
+python -m PyInstaller --icon=favicon.ico --noconfirm --onefile --windowed --collect-all customtkinter otp_gui.py
 ```
 
-ou
+### Windows x86 (32-bit)
 
 ```bash
-python -m PyInstaller ^
-    --onefile ^
-    --windowed ^
-    --collect-all customtkinter ^
-    otp_gui.py
+python -m PyInstaller --icon=favicon.ico --noconfirm --onefile --windowed --collect-all customtkinter otp_gui.py
 ```
 
-O executável será criado em:
+## Uso
 
-```
-dist/
-└── otp_gui.exe
-```
-
----
-
-## Estrutura
-
-```
-.
-├── otp_gui.py
-├── emails.json
-├── README.md
-└── docs/
-    └── screenshot.png
-```
-
----
-
-## Como funciona
-
-Para cada endereço de e-mail cadastrado, o aplicativo:
-
-1. Gera uma chave secreta determinística baseada no SHA-256 do e-mail.
-2. Converte essa chave para Base32.
-3. Calcula o código TOTP utilizando HMAC-SHA1.
-4. Atualiza automaticamente o código a cada 30 segundos.
-
-Os e-mails cadastrados são armazenados em:
-
-```
-emails.json
-```
-
-localizado na mesma pasta do executável.
-
----
+1. Cole o código OTP no campo de texto
+2. Clique em "Adicionar" ou pressione Enter
+3. O código OTP será gerado automaticamente a cada 30 segundos
+4. Clique no código para copiá-lo para a área de transferência
 
 ## Tecnologias
 
-- Python
-- CustomTkinter
-- Tkinter
-- HMAC
-- SHA-256
-- Base32
-- PyInstaller
-
----
-
-## Aviso
-
-Este projeto foi desenvolvido para auxiliar jogadores do Ragnarok Online LATAM na geração dos códigos OTP compatíveis com o servidor.
-
-Não armazena senhas, tokens ou informações sensíveis além dos e-mails cadastrados localmente.
-
----
+- Python 3.11
+- CustomTkinter (interface gráfica)
+- TOTP (RFC 6238)
+- PyInstaller (compilação)
 
 ## Licença
 
-MIT License
+Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
