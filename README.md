@@ -6,14 +6,6 @@ O aplicativo possui uma interface moderna desenvolvida com **CustomTkinter**, pe
 
 ---
 
-## Preview
-
-<p align="center">
-<img src="docs/screenshot.png" width="700">
-</p>
-
----
-
 ## Recursos
 
 - Interface moderna em modo escuro
